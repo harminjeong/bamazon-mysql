@@ -1,5 +1,6 @@
 var mysql = require("mysql");
 var inquirer = require("inquirer");
+var table = require("console.table");
 
 var connection = mysql.createConnection({
   host: "localhost",
@@ -22,13 +23,12 @@ function display() {
   var sql = "SELECT * FROM products";
   connection.query(sql, (err, res) => {
     if(err) throw err;
-    console.log(res);
+    console.table(res);
     buy();
   
   })
 };
 display();
-
 
 function buy() {
   inquirer
@@ -45,7 +45,6 @@ function buy() {
     }
     ])
     .then(function(answer) {
-        // if (answer.quantity) {
           // var id = answer.purchase;
           var amount = answer.quantity;
           connection.query(
