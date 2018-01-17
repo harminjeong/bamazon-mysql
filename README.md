@@ -1,3 +1,3 @@
 # bamazon-mysql
 
-![alt text] (bamazon-mysql.gif)
+![alt text](bamazon-mysql.gif)
